@@ -1,46 +1,26 @@
 # step2stl
-Example program of how to convert ISO 10303 STEP files (AP203 and AP 214) to STL using OpenCascade
+Example program of how to convert ISO 10303 STEP files (AP203 and AP 214) to STL using OpenCascade.
+This is a fork of https://github.com/chfritz/step2stl that uses a cmake build system and works with OpenCascade 7.1
 
 ## Dependencies
 
 You need OpenCascade.
 
-### Ubuntu
-
-On Ubuntu you can try to install opencascade from apt-get. This might
-work:
-
+### MACOSX:
 ```
-sudo apt-get install libopencascade-foundation-6.5.0 \
-libopencascade-modeling-6.5.0 libopencascade-ocaf-6.5.0 \
-libopencascade-ocaf-lite-6.5.0 libopencascade-visualization-6.5.0 \
-opencascade-draw
+brew install opencascade
 ```
-
-
-### Compiling OpenCascade from source:
-
-To compile from source (on OSX make sure to use gcc, not clang):
-
-```
-git clone https://github.com/tpaviot/oce.git
-git checkout 13965711913c4590549de562e55c922fb0889d24
-cd ..
-cd oce
-mkdir build
-cd build
-cmake ..
-sudo make install
-```
-
 
 ## Compiling
 
-You should be able to compile it on ubuntu or osx if you have
-OpenCascade installed (Makefile included). The included Makefile
-assumes the library paths as used by the source installation route. If
-you install from apt, then you may need to remove `local/` from some
-of the paths.
+This has been tested only on MacOSX but should also work on linux.
+
+```
+mkdir build
+cd build
+cmake ../
+make
+```
 
 ## Running
 
@@ -50,8 +30,3 @@ just use it as:
 ```
 ./step2stl STEPFILENAME STLFILENAME
 ```
-
-## Using in node.js
-
-Run `make lib` to create the dynamic library and ffi file for use in node.js.
-
