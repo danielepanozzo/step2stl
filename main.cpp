@@ -20,7 +20,7 @@ int step2stl(char *in, char *out) {
   // stlWriter.SetCoefficient(0.0001);
   stlWriter.ASCIIMode() = Standard_False;
 
-  BRepMesh_IncrementalMesh Mesh( Original_Solid, 0.01 );
+  BRepMesh_IncrementalMesh Mesh( Original_Solid, 0.01, true);
   Mesh.Perform();
 
   stlWriter.Write( Original_Solid, out);
